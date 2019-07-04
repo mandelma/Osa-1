@@ -67,7 +67,7 @@ function App() {
         bad {feedBack.bad}<br/>
         all {all}<br/>
         average {average}<br/>
-        positive {positive}%
+        positive {positive} %
         
       </p>
 
