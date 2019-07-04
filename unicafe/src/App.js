@@ -11,14 +11,21 @@ const Button = (props) => {
 }
 
 const Statistics = (props) => {
+  if(props.all > 0){
+    return(
+      <div className = "vastaus">
+        good {props.good}<br/>
+        neutral {props.neutral}<br/>
+        bad {props.bad}<br/>
+        all {props.all}<br/>
+        average {props.average}<br/>
+        positive {props.positive} %<br/>
+      </div>
+    )
+  }
   return(
-    <div className = "vastaus">
-      good {props.good}<br/>
-      neutral {props.neutral}<br/>
-      bad {props.bad}<br/>
-      all {props.all}<br/>
-      average {props.average}<br/>
-      positive {props.positive} %
+    <div>
+      {props.noStatistics}
     </div>
   )
 }
@@ -30,12 +37,16 @@ function App() {
     bad: 0
   })
 
+  const [amount, setAmount] = useState([])
+  
+
   const goodHandler = () => {
     const newFeedback = {
       ...feedBack,
       good: feedBack.good + 1
     }
     setFeedback(newFeedback)
+    setAmount(amount.concat("g"))
   }
 
   const neutralHandler = () => {
@@ -81,6 +92,7 @@ function App() {
         all = {all}
         average = {average}
         positive = {positive}
+        noStatistics = "No feedback given"
       />
     </div>
   )
