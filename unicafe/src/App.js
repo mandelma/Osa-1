@@ -41,6 +41,10 @@ function App() {
     setFeedback(newFeedback)
   }
 
+  const all = feedBack.good + feedBack.neutral + feedBack.bad
+  const average = all > 0 ? ((feedBack.good - feedBack.bad) / all) : 0
+  const positive = all > 0 ? ((feedBack.good / all) * 100) : 0
+
   return (
     <div>
       <h1>Give feedback</h1>
@@ -60,7 +64,11 @@ function App() {
       <p className = "vastaus">
         good {feedBack.good}<br/>
         neutral {feedBack.neutral}<br/>
-        bad {feedBack.bad}
+        bad {feedBack.bad}<br/>
+        all {all}<br/>
+        average {average}<br/>
+        positive {positive}%
+        
       </p>
 
     </div>
