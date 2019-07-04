@@ -14,12 +14,12 @@ const Statistics = (props) => {
   if(props.all > 0){
     return(
       <div className = "vastaus">
-        good {props.good}<br/>
-        neutral {props.neutral}<br/>
-        bad {props.bad}<br/>
-        all {props.all}<br/>
-        average {props.average}<br/>
-        positive {props.positive} %<br/>
+        <Statistic tekst = "good" value = {props.good}/>
+        <Statistic tekst = "neutral" value = {props.neutral}/>
+        <Statistic tekst = "bad" value = {props.bad}/>
+        <Statistic tekst = "all" value = {props.all}/>
+        <Statistic tekst = "average" value = {props.average}/>
+        <Statistic tekst = "positive" value = {props.positive + " %"}/>
       </div>
     )
   }
@@ -28,6 +28,14 @@ const Statistics = (props) => {
       {props.noStatistics}
     </div>
   )
+}
+
+const Statistic = (props) => {
+    return(
+      <div>
+        {props.tekst} {props.value} <br/>
+      </div>
+    )
 }
 
 function App() {
