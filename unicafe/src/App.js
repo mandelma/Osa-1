@@ -10,6 +10,19 @@ const Button = (props) => {
   )
 }
 
+const Statistics = (props) => {
+  return(
+    <div className = "vastaus">
+      good {props.good}<br/>
+      neutral {props.neutral}<br/>
+      bad {props.bad}<br/>
+      all {props.all}<br/>
+      average {props.average}<br/>
+      positive {props.positive} %
+    </div>
+  )
+}
+
 function App() {
   const [feedBack, setFeedback] = useState({
     good: 0,
@@ -61,16 +74,14 @@ function App() {
         teksti = "bad"
       />
       <h1>Statistics</h1>
-      <p className = "vastaus">
-        good {feedBack.good}<br/>
-        neutral {feedBack.neutral}<br/>
-        bad {feedBack.bad}<br/>
-        all {all}<br/>
-        average {average}<br/>
-        positive {positive} %
-        
-      </p>
-
+      <Statistics
+        good = {feedBack.good}
+        neutral = {feedBack.neutral}
+        bad = {feedBack.bad}
+        all = {all}
+        average = {average}
+        positive = {positive}
+      />
     </div>
   )
 }
