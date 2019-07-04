@@ -13,14 +13,14 @@ const Button = (props) => {
 const Statistics = (props) => {
   if(props.all > 0){
     return(
-      <div className = "vastaus">
+      <table className = "vastaus">
         <Statistic tekst = "good" value = {props.good}/>
         <Statistic tekst = "neutral" value = {props.neutral}/>
         <Statistic tekst = "bad" value = {props.bad}/>
         <Statistic tekst = "all" value = {props.all}/>
         <Statistic tekst = "average" value = {props.average}/>
         <Statistic tekst = "positive" value = {props.positive + " %"}/>
-      </div>
+      </table>
     )
   }
   return(
@@ -32,9 +32,12 @@ const Statistics = (props) => {
 
 const Statistic = (props) => {
     return(
-      <div>
-        {props.tekst} {props.value} <br/>
-      </div>
+      <tbody>
+        <tr>
+          <td>{props.tekst}</td>
+          <td>{props.value}</td>
+        </tr>
+      </tbody>
     )
 }
 
