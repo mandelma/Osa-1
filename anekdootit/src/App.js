@@ -11,12 +11,9 @@ const App = () => {
 
   const newpoints = []
 
-  
   const changeAnecdote = (inx) => {
     const index = Math.floor((Math.random() * points.length))
-
     setSelected(index)
-    
   }
 
   const pointHandler = () => {
@@ -32,13 +29,33 @@ const App = () => {
     setVote(newpoints)
   }
   
+  const maxVotes = () => {
+    let max = 0
+    for(let i = 0; i < vote.length; i++){
+      if(vote[i] > max){
+        max = vote[i]
+      }
+    }
+    console.log(max)
+    return max
+  }
 
+  let inx = 0
+  
+  vote.forEach(element => {
+    if(maxVotes() === element){
+      inx = vote.indexOf(element)
+    }
+  })
+    
   return (
     <div>
-      <p>{anecdotes[select]}</p>
-      <p>has {vote[select]} votes</p>
+      <h2>Anecdote of the day</h2>
+      <p>{anecdotes[select]}<br/>has {vote[select]} votes</p>
       <button onClick = {pointHandler}>vote</button>
       <button onClick = {changeAnecdote}>next anecdote</button>
+      <h2>Anecdote with most votes</h2>
+      <p>{anecdotes[inx]}<br/>has {maxVotes()} votes</p>
     </div>
   )
 }
